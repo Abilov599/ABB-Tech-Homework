@@ -1,0 +1,20 @@
+{
+  "name": "project-x",
+  "version": "1.0.0",
+  "description": "Jeyhun Abilov, FS-1",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./src/app.js"
+  },
+  "author": "Jeyhun Abilov",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "eslint": "^8.40.0",
+    "gulp": "^4.0.2"
+  }
+}
