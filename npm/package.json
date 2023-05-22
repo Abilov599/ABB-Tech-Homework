@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Jeyhun Abilov, FS-1",
   "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Abilov599/ABB-Tech-Homework"
+},
   "scripts": {
     "start": "node ./src/app.js"
   },
