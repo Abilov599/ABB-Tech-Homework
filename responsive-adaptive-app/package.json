@@ -1,0 +1,21 @@
+{
+  "name": "responsive-adaptive-app",
+  "version": "1.0.0",
+  "description": "Jeyhun Abilov, FS-1",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Abilov599/ABB-Tech-Homework"
+  },
+  "scripts": {
+    "start": ""
+  },
+  "author": "Jeyhun Abilov",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.62.1"
+  }
+}
