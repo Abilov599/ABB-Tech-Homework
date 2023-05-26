@@ -5,10 +5,10 @@
   "main": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Abilov599/ABB-Tech-Homework"
+    "url": "https://github.com/Abilov599/ABB-Tech-Homework/tree/main/responsive-adaptive-app"
   },
   "scripts": {
-    "start": ""
+    "build": "gulp"
   },
   "author": "Jeyhun Abilov",
   "license": "ISC",
