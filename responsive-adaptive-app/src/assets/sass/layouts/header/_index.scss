@@ -11,6 +11,7 @@ header {
           padding: 13px;
           width: 43px;
           text-align: center;
+          float: right;
           color: white;
           background-color: black;
           &.btn-close {
@@ -19,6 +20,7 @@ header {
         }
         .mobile-nav {
           display: none;
+          clear: both;
           flex-direction: column;
           padding: 4.5px 13px;
           min-width: 182px;
@@ -38,16 +40,16 @@ header {
         align-items: flex-end;
         margin: 23px 0;
         .burger-box {
+          display: block;
           .burger {
             display: block;
           }
-          display: block;
-          position: relative;
+          // position: relative;
           .mobile-nav {
             margin: 0;
-            position: absolute;
+            // position: absolute;
             align-items: flex-start;
-            right: 0;
+            // right: 0;
             display: none;
             gap: 8px;
           }

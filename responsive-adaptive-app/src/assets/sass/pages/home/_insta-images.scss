@@ -1,0 +1,40 @@
+.insta-images {
+  padding: 48px 0;
+  background-color: #f7f7f7;
+  @include mobile {
+    background-color: #fff;
+  }
+  .container {
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      h1 {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: $darker-gray;
+      }
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      img {
+        width: 24.3%;
+      }
+      @include tablet {
+        flex-direction: column;
+        img {
+          @include mobile {
+            width: 280px
+          }
+          width: 301px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.blogs {
+  .container {
+    margin-bottom: 69px;
+    h1 {
+      font-family: "Roboto";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 22px;
+      text-transform: uppercase;
+      color: $darker-gray;
+      margin-bottom: 24px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 55px;
+      row-gap: 32px;
+      .card {
+        display: flex;
+        max-width: 535px;
+        gap: 20px;
+        @include mobile {
+          flex-direction: column;
+        }
+        .card-info {
+          h2 {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 30px;
+            color: $darker-gray;
+            margin-bottom: 1px;
+          }
+          h3 {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 20px;
+            color: $light-gray;
+            margin-bottom: 13px;
+          }
+          p {
+            font-family: "Roboto";
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 26px;
+            color: $dark-gray;
+          }
+        }
+      }
+    }
+  }
+}
