@@ -18,7 +18,8 @@ function concatHtml() {
   return gulp
     .src("./src/*.html")
     .pipe(concat("index.html"))
-    .pipe(gulp.dest("./dist/"));
+    .pipe(gulp.dest("./dist/"))
+    .pipe(browserSync.stream());
 }
 
 function style() {
@@ -28,17 +29,18 @@ function style() {
     .on("error", sass.logError)
     .pipe(autoprefixer({ cascade: false }))
     .pipe(cleanCSS({ compatibility: "ie8" }))
-    .pipe(gulp.dest("./dist/assets/css"))
+    .pipe(gulp.dest("./dist/assets/css/"))
     .pipe(browserSync.stream());
 }
 
 function minifyJs() {
-  gulp
-    .src(["./src/*.js"])
+  return gulp
+    .src("./src/assets/js/*.js")
     .pipe(clean({ force: true }))
     .pipe(minify())
     .pipe(uglify())
-    .pipe(gulp.dest("./dist/assets/js"));
+    .pipe(gulp.dest("./dist/assets/js/"))
+    .pipe(browserSync.stream());
 }
 
 function imageMin() {
@@ -55,8 +57,8 @@ function serve() {
     },
   });
   gulp.watch("./src/assets/sass/**/*.scss", style);
-  gulp.watch("./src*.html", concatHtml);
-  gulp.watch("./dist/*.html").on("change", browserSync.reload);
+  gulp.watch("./src/*.html", concatHtml);
+  gulp.watch("./src/assets/js/*.js", minifyJs);
 }
 
 // GULP TASKS

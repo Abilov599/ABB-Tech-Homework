@@ -1,8 +1,11 @@
 main {
   .image {
-    img {
-      width: 100%;
-      object-fit: cover;
+    .container {
+      padding: 0 20px;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 }
