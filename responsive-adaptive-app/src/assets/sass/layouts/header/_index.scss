@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  nav {
+    margin: 41px 0 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 68px;
+    }
+  }
+}
