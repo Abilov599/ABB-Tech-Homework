@@ -1,0 +1,45 @@
+footer {
+  background-color: black;
+  padding: 66px 0 70px;
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .content {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      h3 {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: $white;
+      }
+      .text {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+        text-align: center;
+        color: $lighter-gray;
+        margin-bottom: 37px;
+      }
+      img {
+        margin-bottom: 34px;
+      }
+      .contact {
+        font-family: "Roboto";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 28px;
+        text-align: center;
+        color: $lighter-gray;
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     .drop-menu {
       display: none;
       .burger-box {
