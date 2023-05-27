@@ -1,6 +1,18 @@
+// IMPORTS
+
 const gulp = require("gulp");
 const sass = require("gulp-sass")(require("sass"));
 const concat = require("gulp-concat");
+const browserSync = require("browser-sync").create();
+const minify = require("gulp-minify");
+const uglify = require("gulp-uglify");
+const cleanCSS = require("gulp-clean-css");
+const clean = require("gulp-clean");
+const autoprefixer = require("gulp-autoprefixer");
+const imagemin = require("gulp-imagemin");
+// const pipeline = require("readable-stream").pipeline;
+
+// GULP FUNCTIONS
 
 function concatHtml() {
   return gulp
@@ -14,14 +26,53 @@ function style() {
     .src("./src/assets/sass/**/*.scss")
     .pipe(sass({ outputStyle: "expanded" }).on("error", sass.logError))
     .on("error", sass.logError)
-    .pipe(gulp.dest("./dist/assets/css"));
+    .pipe(autoprefixer({ cascade: false }))
+    .pipe(cleanCSS({ compatibility: "ie8" }))
+    .pipe(gulp.dest("./dist/assets/css"))
+    .pipe(browserSync.stream());
 }
 
-function watchSass() {
-  gulp.watch("./src/assets/sass/**/*.scss", style);
+function minifyJs() {
+  gulp
+    .src(["./src/*.js"])
+    .pipe(clean({ force: true }))
+    .pipe(minify())
+    .pipe(uglify())
+    .pipe(gulp.dest("./dist/assets/js"));
 }
+
+function imageMin() {
+  gulp
+    .src("src/assets/images/*")
+    .pipe(imagemin())
+    .pipe(gulp.dest("./dist/assets/images"));
+}
+
+function serve() {
+  browserSync.init({
+    server: {
+      baseDir: "./dist",
+    },
+  });
+  gulp.watch("./src/assets/sass/**/*.scss", style);
+  gulp.watch("./src*.html", concatHtml);
+  gulp.watch("./dist/*.html").on("change", browserSync.reload);
+}
+
+// GULP TASKS
 
 gulp.task("concat-html", concatHtml);
+gulp.task("image-min", imageMin);
 gulp.task("compile-sass", style);
-gulp.task("watch-sass", watchSass);
-gulp.task("default", gulp.parallel("concat-html", "compile-sass", "watchSass"));
+gulp.task("minify-js", minifyJs);
+gulp.task("serve", serve);
+gulp.task(
+  "default",
+  gulp.parallel(
+    "image-min",
+    "concat-html",
+    "compile-sass",
+    "minify-js",
+    "serve"
+  )
+);
