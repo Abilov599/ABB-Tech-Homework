@@ -18,6 +18,9 @@ footer {
         line-height: 22px;
         text-transform: uppercase;
         color: $white;
+        @include mobile {
+          font-size: 14px;
+        }
       }
       .text {
         font-family: "Roboto";
@@ -28,6 +31,9 @@ footer {
         text-align: center;
         color: $lighter-gray;
         margin-bottom: 37px;
+        @include mobile {
+          font-size: 12px;
+        }
         span {
           @include mobile {
             display: none;
@@ -48,6 +54,9 @@ footer {
         text-align: center;
         color: $lighter-gray;
         max-width: 235px;
+        @include mobile {
+          font-size: 14px;
+        }
       }
     }
   }
