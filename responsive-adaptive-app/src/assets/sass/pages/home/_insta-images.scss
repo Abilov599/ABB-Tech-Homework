@@ -18,21 +18,27 @@
         text-transform: uppercase;
         color: $darker-gray;
       }
+      @include mobile {
+        .go-to-insta {
+          display: none;
+        }
+      }
     }
     .row {
       display: flex;
-      flex-wrap: wrap;
+      overflow: hidden;
       gap: 10px;
       img {
         width: 24.3%;
       }
       @include tablet {
-        flex-direction: column;
+        img {
+          width: 235px;
+        }
         img {
           @include mobile {
-            width: 280px
+            width: 280px;
           }
-          width: 301px;
         }
       }
     }
