@@ -28,9 +28,16 @@ footer {
         text-align: center;
         color: $lighter-gray;
         margin-bottom: 37px;
+        span {
+          @include mobile {
+            display: none;
+          }
+        }
       }
-      img {
+      ul {
         margin-bottom: 34px;
+        display: flex;
+        gap: 6px;
       }
       .contact {
         font-family: "Roboto";
@@ -40,6 +47,7 @@ footer {
         line-height: 28px;
         text-align: center;
         color: $lighter-gray;
+        max-width: 235px;
       }
     }
   }

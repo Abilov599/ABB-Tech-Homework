@@ -49,6 +49,9 @@
             font-size: 14px;
             line-height: 26px;
             color: $dark-gray;
+            @include mobile {
+              display: none;
+            }
           }
         }
       }
