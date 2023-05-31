@@ -5,9 +5,8 @@ const sass = require("gulp-sass")(require("sass"));
 const concat = require("gulp-concat");
 const browserSync = require("browser-sync").create();
 const minify = require("gulp-minify");
-const uglify = require("gulp-uglify");
 const cleanCSS = require("gulp-clean-css");
-const clean = require("gulp-clean");
+const uglify = require("gulp-uglify-es").default;
 const autoprefixer = require("gulp-autoprefixer");
 const imagemin = require("gulp-imagemin");
 // const pipeline = require("readable-stream").pipeline;
@@ -36,9 +35,8 @@ function style() {
 function minifyJs() {
   return gulp
     .src("./src/assets/js/*.js")
-    .pipe(clean({ force: true }))
-    .pipe(minify())
     .pipe(uglify())
+    .pipe(minify())
     .pipe(gulp.dest("./dist/assets/js/"))
     .pipe(browserSync.stream());
 }
