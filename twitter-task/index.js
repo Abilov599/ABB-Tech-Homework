@@ -13,6 +13,22 @@ async function fetchByUrl(url) {
   }
 }
 
+export async function deletePost(postId) {
+  try {
+    const response = await fetch(postsURL + "/" + `${postId}`, {
+      method: "DELETE",
+    });
+
+    if (response.ok) {
+      alert(`Post with id: ${postId} deleted!`);
+    } else {
+      throw new Error("Failed to delete post");
+    }
+  } catch (error) {
+    console.error("Error deleting post:", error.message);
+  }
+}
+
 function bindData(users, posts) {
   const data = users.map((user) => {
     let filteredPosts = posts.filter((post) => post.userId === user.id);
@@ -37,12 +53,13 @@ handlePromises(promises)
   .then(({ users, posts }) => {
     const data = bindData(users, posts);
     data.forEach((user) => {
-      console.log(user);
       user.posts.forEach((post) => {
         const card = new Card({
+          id: `${post.id}`,
+          name: `${user.name}`,
+          username: `${user.username}`,
           header: `${post.title}`,
           content: `${post.body}`,
-          footer: `${user.name}`,
         });
         card.render();
       });

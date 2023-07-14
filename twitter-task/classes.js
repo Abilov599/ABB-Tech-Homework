@@ -1,9 +1,12 @@
+import { deletePost } from "./index.js";
+
 export default class Card {
-  constructor({ id, header, content, footer }) {
+  constructor({ id, name, username, header, content }) {
     this.id = id;
+    this.name = name;
+    this.username = username;
     this.header = header;
     this.content = content;
-    this.footer = footer;
   }
 
   render() {
@@ -11,6 +14,15 @@ export default class Card {
 
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
+    cardElement.id = this.id;
+
+    const nameElement = document.createElement("div");
+    nameElement.classList.add("card-user");
+    nameElement.textContent = this.name;
+
+    const usernameElement = document.createElement("div");
+    usernameElement.classList.add("card-username");
+    usernameElement.textContent = this.username + "✅";
 
     const headerElement = document.createElement("div");
     headerElement.classList.add("card-header");
@@ -20,13 +32,20 @@ export default class Card {
     contentElement.classList.add("card-content");
     contentElement.textContent = this.content;
 
-    const footerElement = document.createElement("div");
-    footerElement.classList.add("card-footer");
-    footerElement.textContent = this.footer;
+    const deleteElement = document.createElement("button");
+    deleteElement.classList.add("card-button");
+    deleteElement.textContent = "Delete";
 
+    deleteElement.addEventListener("click", () => {
+      deletePost(this.id);
+      cardElement.remove();
+    });
+
+    cardElement.appendChild(nameElement);
+    cardElement.appendChild(usernameElement);
     cardElement.appendChild(headerElement);
     cardElement.appendChild(contentElement);
-    cardElement.appendChild(footerElement);
+    cardElement.appendChild(deleteElement);
 
     cardContainer.appendChild(cardElement);
   }
