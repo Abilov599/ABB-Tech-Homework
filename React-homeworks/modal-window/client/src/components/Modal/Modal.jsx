@@ -8,7 +8,7 @@ const Modal = ({ isOpen, onClick, text = "Modal" }) => {
         <span className={styles["close-btn"]}>
           <p>{text}</p>
         </span>
-        <button onClick={() => onClick()}>Close</button>
+        <button onClick={onClick}>Close</button>
       </div>
     </div>
   ) : null;
